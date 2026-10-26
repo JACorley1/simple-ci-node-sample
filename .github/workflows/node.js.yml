@@ -17,8 +17,6 @@ jobs:
     strategy:
       matrix:
         node-version: [24.13.0]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
@@ -33,14 +31,14 @@ jobs:
         echo Running Automated Install Process for Project
         cd "code/PhoneNumberChecker/"
         npm ci
-        cd ../.. | 
+        cd ../..
     - run: |
         echo Building Project
         cd "code/PhoneNumberChecker/"
         npm run build --if-present
-        cd ../.. | 
+        cd ../..
     - run: |
         echo Testing Project
         cd "code/PhoneNumberChecker/"
         npm test
-        cd ../.. |
+        cd ../..

@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [24.x]
+        node-version: [24.13.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -27,6 +27,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: 'code/PhoneNumberChecker/package-lock.json' 
+    - name: Pin npm version
+      run: npm install -g npm@11.6.2
     - run: |
         echo Running Automated Install Process for Project
         cd "code/PhoneNumberChecker/"
